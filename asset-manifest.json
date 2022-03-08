@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/FishCalc/static/css/main.5fa89af7.css",
+    "main.js": "/FishCalc/static/js/main.306d41cb.js",
+    "index.html": "/FishCalc/index.html",
+    "main.5fa89af7.css.map": "/FishCalc/static/css/main.5fa89af7.css.map",
+    "main.306d41cb.js.map": "/FishCalc/static/js/main.306d41cb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5fa89af7.css",
+    "static/js/main.306d41cb.js"
+  ]
+}
