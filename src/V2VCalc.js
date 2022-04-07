@@ -8,7 +8,7 @@ export default function Vol(props){
     let [ToteCount, setToteCount] = useState(0);
     let depthsInputs = [];
     let alsoDepths = [];
-    let [totalVolume, SetTotalVolume] = useState(0);
+    let [totalVolume, setTotalVolume] = useState(0);
     let [subSampMultiplier, SetSubSampMultiplier] = useState(0);
     for(let i = 0; i<10; i++){
         depthsInputs.push(<input key={i} onChange={calcDepth} className = "genericField1"></input>);
@@ -28,25 +28,25 @@ export default function Vol(props){
         setDepths(total);
     }
     function setvolume(e){
-        setPenVolume(e.target.value)
+        setPenVolume(parseFloat(e.target.value).toFixed(2))
 
     }
     function SetBasketCount(e){
         
         if(!!e.target.value){
-            setBasketCount(parseFloat(e.target.value)*1.47);
+            setBasketCount((parseFloat(e.target.value)*1.47).toFixed(2));
 
         }
     }
     function SetToteCount(e){
         if(!!e.target.value){
-            setToteCount(parseFloat(e.target.value)*2.65);
+            setToteCount((parseFloat(e.target.value)*2.65).toFixed(2));
 
         }
     }
-    function setTotalVolume(e){
-        SetTotalVolume(Depths*penVolume);
-        SetSubSampMultiplier(totalVolume/(BasketCount + ToteCount));
+    function SetTotalVolume(e){
+        setTotalVolume((Depths*penVolume).toFixed(2));
+        SetSubSampMultiplier((totalVolume/(BasketCount + ToteCount)).toFixed(2));
         
         props.setmultiplier(subSampMultiplier);
     }
@@ -65,7 +65,7 @@ export default function Vol(props){
             <form>
                 Pen Volume: <input onChange={e=>setvolume(e)}></input>
                 <div></div>
-                Average Depth: {Depths}
+                Average Depth: {Depths.toFixed(2)}
                 <div></div>
                 Total Haul Volume: {totalVolume}
                 <div></div>
@@ -74,7 +74,7 @@ export default function Vol(props){
                 Tote Count: <input onChange={e=>SetToteCount(e)}></input>
                 <div></div>
                 Sample Weight Multiplier: {subSampMultiplier}
-                <div><button type="button" onClick = {setTotalVolume}>Calculate</button></div>
+                <div><button type="button" onClick = {SetTotalVolume}>Calculate</button></div>
             </form>
         </div>
     )
