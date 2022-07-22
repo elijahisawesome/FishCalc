@@ -10,6 +10,10 @@ export default function Vol(props){
     let alsoDepths = [];
     let [totalVolume, setTotalVolume] = useState(0);
     let [subSampMultiplier, SetSubSampMultiplier] = useState(0);
+    useEffect(()=>{
+        SetTotalVolume();
+        
+    }, [Depths,penVolume,BasketCount,ToteCount,totalVolume,subSampMultiplier, SetTotalVolume])
     for(let i = 0; i<10; i++){
         depthsInputs.push(<input key={i} onChange={calcDepth} className = "genericField1"></input>);
     }
